@@ -1,5 +1,5 @@
 export const profile = {
-  name: 'Mrs. Priya Amit Surana',
+  name: 'Dr. Priya Surana',
   title: 'Assistant Professor, Computer Engineering',
   subtitle: 'Assistant Professor | AI & Machine Learning',
   organization: 'Pimpri Chinchwad College of Engineering, Pune',
@@ -14,7 +14,7 @@ export const profile = {
 }
 
 export const aboutText =
-  'Mrs. Priya Amit Surana is an Assistant Professor in Computer Engineering at PCCOE, Pune, focused on teaching, mentoring, and applied research in intelligent systems. As Research and Innovation Coordinator, she promotes a strong research culture through student projects, workshops, and publication-oriented guidance in AI, machine learning, and computer vision.'
+  'Dr. Priya Surana is an Assistant Professor in Computer Engineering at PCCOE, Pune, focused on teaching, mentoring, and applied research in intelligent systems. As Research and Innovation Coordinator, she promotes a strong research culture through student projects, workshops, and publication-oriented guidance in AI, machine learning, and computer vision.'
 
 export const researchAreas = [
   'Artificial Intelligence',
