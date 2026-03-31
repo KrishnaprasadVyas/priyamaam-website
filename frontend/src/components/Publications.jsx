@@ -1,43 +1,48 @@
-import { useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
-import { BookOpen, Copy, Filter } from 'lucide-react'
-import { fadeUp, staggerContainer, staggerItem } from '../utils/animations'
+import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import { BookOpen, Copy, Filter } from "lucide-react";
+import { fadeUp, staggerContainer, staggerItem } from "../utils/animations";
 
-function Publications({ items, scholarLink }) {
-  const [activeFilter, setActiveFilter] = useState('All')
-  const [copiedKey, setCopiedKey] = useState('')
-  const filters = ['All', 'ML', 'NLP', 'CV']
+function Publications({ items, scholarLink, featuredItems = [] }) {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [copiedKey, setCopiedKey] = useState("");
+  const filters = ["All", "ML", "NLP", "CV"];
 
   const getTags = (publication) => {
-    const text = `${publication.title} ${publication.description}`.toLowerCase()
-    const tags = []
+    const text =
+      `${publication.title} ${publication.description}`.toLowerCase();
+    const tags = [];
 
-    if (text.includes('nlp') || text.includes('opinion mining') || text.includes('sentiment')) {
-      tags.push('NLP')
+    if (
+      text.includes("nlp") ||
+      text.includes("opinion mining") ||
+      text.includes("sentiment")
+    ) {
+      tags.push("NLP");
     }
 
     if (
-      text.includes('computer vision') ||
-      text.includes('image') ||
-      text.includes('visual') ||
-      text.includes('video') ||
-      text.includes('recognition')
+      text.includes("computer vision") ||
+      text.includes("image") ||
+      text.includes("visual") ||
+      text.includes("video") ||
+      text.includes("recognition")
     ) {
-      tags.push('CV')
+      tags.push("CV");
     }
 
     if (
-      text.includes('machine learning') ||
-      text.includes('deep learning') ||
-      text.includes('classification') ||
-      text.includes('prediction') ||
-      text.includes('neural')
+      text.includes("machine learning") ||
+      text.includes("deep learning") ||
+      text.includes("classification") ||
+      text.includes("prediction") ||
+      text.includes("neural")
     ) {
-      tags.push('ML')
+      tags.push("ML");
     }
 
-    return tags.length > 0 ? Array.from(new Set(tags)) : ['ML']
-  }
+    return tags.length > 0 ? Array.from(new Set(tags)) : ["ML"];
+  };
 
   const publicationsWithMeta = useMemo(
     () =>
@@ -47,28 +52,30 @@ function Publications({ items, scholarLink }) {
         year: 2024 - (index % 4),
       })),
     [items],
-  )
+  );
 
   const filteredItems = useMemo(() => {
-    if (activeFilter === 'All') {
-      return publicationsWithMeta
+    if (activeFilter === "All") {
+      return publicationsWithMeta;
     }
 
-    return publicationsWithMeta.filter((item) => item.tags.includes(activeFilter))
-  }, [activeFilter, publicationsWithMeta])
+    return publicationsWithMeta.filter((item) =>
+      item.tags.includes(activeFilter),
+    );
+  }, [activeFilter, publicationsWithMeta]);
 
   const handleCite = async (publication) => {
-    const citation = `Surana, P. A. (${publication.year}). ${publication.title}.`
+    const citation = `Surana, P. A. (${publication.year}). ${publication.title}.`;
 
     try {
-      await navigator.clipboard.writeText(citation)
-      setCopiedKey(publication.title)
-      window.setTimeout(() => setCopiedKey(''), 1500)
+      await navigator.clipboard.writeText(citation);
+      setCopiedKey(publication.title);
+      window.setTimeout(() => setCopiedKey(""), 1500);
     } catch {
-      setCopiedKey(publication.title)
-      window.setTimeout(() => setCopiedKey(''), 1500)
+      setCopiedKey(publication.title);
+      window.setTimeout(() => setCopiedKey(""), 1500);
     }
-  }
+  };
 
   return (
     <section className="bg-gradient-to-b from-white to-gray-50 px-6 py-10">
@@ -77,22 +84,28 @@ function Publications({ items, scholarLink }) {
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         <motion.div
           className="rounded-2xl border border-gray-200 bg-white/70 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
           variants={fadeUp}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">Publications</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+            Publications
+          </p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Selected Publications
           </h1>
           <p className="mt-3 text-sm text-gray-500 sm:text-base">
-            Research outputs across machine learning, NLP, and vision-driven systems.
+            Research outputs across machine learning, NLP, and vision-driven
+            systems.
           </p>
         </motion.div>
 
-        <motion.div className="mt-6 flex flex-wrap items-center gap-2" variants={fadeUp}>
+        <motion.div
+          className="mt-6 flex flex-wrap items-center gap-2"
+          variants={fadeUp}
+        >
           <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium uppercase tracking-wide text-gray-500">
             <Filter size={14} />
             Filter
@@ -104,10 +117,10 @@ function Publications({ items, scholarLink }) {
               onClick={() => setActiveFilter(filter)}
               className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-300 ${
                 activeFilter === filter
-                  ? 'bg-black text-white shadow-md'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? "bg-black text-white shadow-md"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >
               {filter}
@@ -120,7 +133,7 @@ function Publications({ items, scholarLink }) {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           {filteredItems.map((pub, index) => (
             <motion.article
@@ -138,14 +151,16 @@ function Publications({ items, scholarLink }) {
                 </span>
               </div>
 
-              <p className="mt-2 text-sm leading-relaxed text-gray-500">{pub.description}</p>
+              <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                {pub.description}
+              </p>
 
               <div className="mt-3 flex flex-wrap gap-2">
                 {pub.tags.map((tag) => (
                   <motion.span
                     key={`${pub.title}-${tag}`}
                     className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600 transition-all duration-300 hover:bg-black hover:text-white hover:border-black"
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.02 }}
                   >
                     {tag}
                   </motion.span>
@@ -158,7 +173,7 @@ function Publications({ items, scholarLink }) {
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-4 py-1.5 text-sm font-medium text-gray-900 transition-all duration-300 hover:bg-black hover:text-white"
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <BookOpen size={15} />
@@ -168,19 +183,72 @@ function Publications({ items, scholarLink }) {
                   type="button"
                   onClick={() => handleCite(pub)}
                   className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-4 py-1.5 text-sm font-medium text-gray-900 transition-all duration-300 hover:bg-black hover:text-white"
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <Copy size={14} />
-                  {copiedKey === pub.title ? 'Copied' : 'Cite'}
+                  {copiedKey === pub.title ? "Copied" : "Cite"}
                 </motion.button>
               </div>
             </motion.article>
           ))}
         </motion.div>
+
+        {featuredItems.length > 0 && (
+          <motion.div
+            className="mt-8 rounded-2xl border border-gray-200 bg-white/80 p-6 shadow-sm"
+            variants={fadeUp}
+          >
+            <h2 className="text-xl font-semibold text-gray-900">
+              Detailed Publication Records
+            </h2>
+            <p className="mt-2 text-sm text-gray-500">
+              Conference, indexing, DOI, and publisher details retained from
+              legacy profile records.
+            </p>
+
+            <div className="mt-4 space-y-4">
+              {featuredItems.map((item) => (
+                <article
+                  key={item.doi}
+                  className="rounded-xl border border-gray-200 bg-white p-5"
+                >
+                  <h3 className="text-base font-semibold text-gray-900">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-600">{item.venue}</p>
+
+                  <div className="mt-3 grid gap-2 text-sm text-gray-600 md:grid-cols-2">
+                    <p className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
+                      Conference Date: {item.conferenceDate}
+                    </p>
+                    <p className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
+                      Indexed Date: {item.indexedDate}
+                    </p>
+                    <p className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
+                      DOI: {item.doi}
+                    </p>
+                    <p className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2">
+                      Publisher: {item.publisher}
+                    </p>
+                  </div>
+
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 inline-flex items-center rounded-full border border-gray-300 px-4 py-1.5 text-sm font-medium text-gray-900 transition-all duration-300 hover:bg-black hover:text-white"
+                  >
+                    Open Record
+                  </a>
+                </article>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </motion.div>
     </section>
-  )
+  );
 }
 
-export default Publications
+export default Publications;

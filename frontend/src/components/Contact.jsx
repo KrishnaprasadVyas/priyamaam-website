@@ -1,9 +1,15 @@
-import { GraduationCap, Linkedin, Mail, MapPin, SendHorizontal } from 'lucide-react'
-import { motion } from 'framer-motion'
-import { fadeUp, staggerContainer, staggerItem } from '../utils/animations'
+import {
+  GraduationCap,
+  Linkedin,
+  Mail,
+  MapPin,
+  SendHorizontal,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, staggerItem } from "../utils/animations";
 
 function Contact({ emails, links }) {
-  const [primaryEmail, secondaryEmail] = emails
+  const [primaryEmail, secondaryEmail] = emails;
 
   return (
     <section className="bg-gradient-to-b from-white to-gray-50 px-6 py-10">
@@ -12,11 +18,15 @@ function Contact({ emails, links }) {
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         <motion.div variants={fadeUp}>
-          <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">Get In Touch</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contact</h1>
+          <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+            Get In Touch
+          </p>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Contact
+          </h1>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-gray-500 sm:text-base">
             Feel free to reach out for collaborations or academic queries.
           </p>
@@ -27,10 +37,15 @@ function Contact({ emails, links }) {
             initial="hidden"
             animate="visible"
           >
-            <motion.div className="flex items-start gap-3" variants={staggerItem}>
+            <motion.div
+              className="flex items-start gap-3"
+              variants={staggerItem}
+            >
               <Mail size={16} className="mt-0.5 text-gray-500" />
               <div>
-                <p className="text-xs uppercase tracking-wide text-gray-500">Primary Email</p>
+                <p className="text-xs uppercase tracking-wide text-gray-500">
+                  Primary Email
+                </p>
                 <a
                   href={`mailto:${primaryEmail}`}
                   className="font-medium text-gray-900 transition-all duration-300 hover:text-black hover:scale-105 inline-block"
@@ -40,10 +55,15 @@ function Contact({ emails, links }) {
               </div>
             </motion.div>
 
-            <motion.div className="flex items-start gap-3" variants={staggerItem}>
+            <motion.div
+              className="flex items-start gap-3"
+              variants={staggerItem}
+            >
               <Mail size={16} className="mt-0.5 text-gray-500" />
               <div>
-                <p className="text-xs uppercase tracking-wide text-gray-500">Secondary Email</p>
+                <p className="text-xs uppercase tracking-wide text-gray-500">
+                  Secondary Email
+                </p>
                 <a
                   href={`mailto:${secondaryEmail}`}
                   className="font-medium text-gray-900 transition-all duration-300 hover:text-black hover:scale-105 inline-block"
@@ -53,10 +73,15 @@ function Contact({ emails, links }) {
               </div>
             </motion.div>
 
-            <motion.div className="flex items-start gap-3" variants={staggerItem}>
+            <motion.div
+              className="flex items-start gap-3"
+              variants={staggerItem}
+            >
               <MapPin size={16} className="mt-0.5 text-gray-500" />
               <div>
-                <p className="text-xs uppercase tracking-wide text-gray-500">Location</p>
+                <p className="text-xs uppercase tracking-wide text-gray-500">
+                  Location
+                </p>
                 <p className="font-medium text-gray-900">Pune, India</p>
               </div>
             </motion.div>
@@ -80,7 +105,7 @@ function Contact({ emails, links }) {
               href={`mailto:${primaryEmail}`}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 transition-all duration-300 hover:bg-black hover:text-white"
               variants={staggerItem}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >
               <Mail size={15} />
@@ -92,7 +117,7 @@ function Contact({ emails, links }) {
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 transition-all duration-300 hover:bg-black hover:text-white"
               variants={staggerItem}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >
               <Linkedin size={15} />
@@ -104,7 +129,7 @@ function Contact({ emails, links }) {
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 transition-all duration-300 hover:bg-black hover:text-white"
               variants={staggerItem}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >
               <GraduationCap size={15} />
@@ -141,7 +166,7 @@ function Contact({ emails, links }) {
               type="button"
               className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-gray-900 hover:shadow-lg"
               variants={staggerItem}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >
               <SendHorizontal size={15} />
@@ -151,8 +176,7 @@ function Contact({ emails, links }) {
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }
 
-export default Contact
-
+export default Contact;

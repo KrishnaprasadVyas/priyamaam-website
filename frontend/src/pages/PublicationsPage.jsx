@@ -1,7 +1,13 @@
-import Publications from '../components/Publications'
+import Publications from "../components/Publications";
 
-function PublicationsPage({ items, scholarLink }) {
-  return <Publications items={items} scholarLink={scholarLink} />
+function PublicationsPage({ items, scholarLink, featuredItems }) {
+  return (
+    <Publications
+      items={items}
+      scholarLink={scholarLink}
+      featuredItems={featuredItems}
+    />
+  );
 }
 
-export default PublicationsPage
+export default PublicationsPage;

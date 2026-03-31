@@ -1,7 +1,19 @@
-import Research from '../components/Research'
+import Research from "../components/Research";
 
-function ResearchPage({ areas }) {
-  return <Research areas={areas} />
+function ResearchPage({
+  areas,
+  researchProfile,
+  milestones,
+  innovationHighlights,
+}) {
+  return (
+    <Research
+      areas={areas}
+      researchProfile={researchProfile}
+      milestones={milestones}
+      innovationHighlights={innovationHighlights}
+    />
+  );
 }
 
-export default ResearchPage
+export default ResearchPage;
