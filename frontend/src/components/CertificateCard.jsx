@@ -24,6 +24,8 @@ function CertificateCard({ certificate }) {
               src={certificate.file}
               alt={certificate.title}
               className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+              loading="lazy"
+              decoding="async"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center bg-gradient-to-b from-gray-100 to-gray-200">
@@ -120,6 +122,8 @@ function CertificateCard({ certificate }) {
                 src={certificate.file}
                 alt={certificate.title}
                 className="h-auto w-full rounded-l rounded-lg"
+                loading="lazy"
+                decoding="async"
               />
             ) : (
               <iframe

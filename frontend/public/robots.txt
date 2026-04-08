@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.priyasurana.in/sitemap.xml
+Host: https://www.priyasurana.in

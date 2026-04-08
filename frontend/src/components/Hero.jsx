@@ -1,4 +1,4 @@
-import { ArrowRight, GraduationCap, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Github, GraduationCap, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
@@ -26,8 +26,8 @@ function Hero({
   ];
 
   const profileImage = imageFallback
-    ? "https://ui-avatars.com/api/?name=Priya+Surana&background=f3f4f6&color=111111&size=720"
-    : "/assets/priya-surana/profile/priya-surana.jpg";
+    ? "/assets/priya-surana/profile/hero-portrait.svg"
+    : "/assets/priya-surana/profile/hero-portrait.svg";
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 px-6 py-16">
@@ -107,6 +107,17 @@ function Hero({
               >
                 <GraduationCap size={15} /> Google Scholar
               </motion.a>
+              {profile.links.github ? (
+                <motion.a
+                  href={profile.links.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-gray-600 transition-all duration-300 hover:text-gray-900 hover:scale-105"
+                  variants={staggerItem}
+                >
+                  <Github size={15} /> GitHub
+                </motion.a>
+              ) : null}
             </motion.div>
           </motion.div>
 
@@ -125,6 +136,9 @@ function Hero({
                 src={profileImage}
                 alt={profile.name}
                 className="h-[360px] w-full rounded-xl object-cover transition-all duration-300 sm:h-[420px] hover:brightness-105"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 onError={() => setImageFallback(true)}
               />
             </motion.div>

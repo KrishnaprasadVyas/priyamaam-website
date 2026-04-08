@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -14,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
   --hover-ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   --hover-duration-smooth: 420ms;
+  color-scheme: light;
 }
 
 html {
@@ -22,8 +22,17 @@ html {
 
 body {
   margin: 0;
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 52%, #ffffff 100%);
   color: #111111;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
 #root {
@@ -31,8 +40,14 @@ body {
 }
 
 /* Smooth page transitions */
-* {
-  transition-property: background-color, border-color, color, fill, stroke;
+a,
+button,
+input,
+textarea,
+select,
+summary {
+  transition-property: background-color, border-color, color, fill, stroke,
+    transform, box-shadow, opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -169,6 +184,13 @@ input,
 textarea,
 select {
   transition: all 0.2s ease;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
 }
 
 input:focus,

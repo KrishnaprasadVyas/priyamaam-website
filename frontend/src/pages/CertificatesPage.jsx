@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
+import SEO from '../components/SEO'
 import CertificateCard from '../components/CertificateCard'
 import FilterBar from '../components/FilterBar'
 import { certificates } from '../data/certificate'
@@ -25,6 +26,12 @@ function CertificatesPage() {
 
   return (
     <section className="bg-gradient-to-b from-white to-gray-50 px-6 py-12">
+      <SEO
+        title="Achievements | Dr. Priya Surana"
+        description="Explore Dr. Priya Surana&apos;s certificates, workshops, FDPs, publications, and professional milestones across academic years."
+        path="/achievements"
+        image="/og-image.svg"
+      />
       <motion.div
         className="mx-auto max-w-7xl"
         variants={fadeUp}

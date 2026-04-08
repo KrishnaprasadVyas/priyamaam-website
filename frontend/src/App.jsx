@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 import CursorGlow from "./components/CursorGlow";
@@ -17,14 +18,15 @@ import {
   researchMilestones,
   researchProfile,
 } from "./data/portfolioData";
-import AcademicsPage from "./pages/AcademicsPage";
-import AboutPage from "./pages/AboutPage";
-import CertificatesPage from "./pages/CertificatesPage";
-import ContactPage from "./pages/ContactPage";
-import HomePage from "./pages/HomePage";
-import ProjectsPage from "./pages/ProjectsPage";
-import PublicationsPage from "./pages/PublicationsPage";
-import ResearchPage from "./pages/ResearchPage";
+const AcademicsPage = lazy(() => import("./pages/AcademicsPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const CertificatesPage = lazy(() => import("./pages/CertificatesPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const HomePage = lazy(() => import("./pages/HomePage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
+const PublicationsPage = lazy(() => import("./pages/PublicationsPage"));
+const ResearchPage = lazy(() => import("./pages/ResearchPage"));
 
 function App() {
   return (
@@ -34,62 +36,70 @@ function App() {
         <Navbar items={navItems} />
 
         <main>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <HomePage
-                  profile={profile}
-                  researchAreas={researchAreas}
-                  publicationsCount={publications.length}
-                  certificationsCount={certificates.length}
-                />
-              }
-            />
-            <Route
-              path="/about"
-              element={<AboutPage content={aboutText} profile={profile} />}
-            />
-            <Route
-              path="/academics"
-              element={
-                <AcademicsPage academics={academics} profile={profile} />
-              }
-            />
-            <Route
-              path="/research"
-              element={
-                <ResearchPage
-                  areas={researchAreas}
-                  researchProfile={researchProfile}
-                  milestones={researchMilestones}
-                  innovationHighlights={innovationHighlights}
-                />
-              }
-            />
-            <Route
-              path="/publications"
-              element={
-                <PublicationsPage
-                  items={publications}
-                  scholarLink={profile.links.scholar}
-                  featuredItems={featuredPublications}
-                />
-              }
-            />
-            <Route path="/achievements" element={<CertificatesPage />} />
-            <Route
-              path="/projects"
-              element={<ProjectsPage projects={projects} />}
-            />
-            <Route
-              path="/contact"
-              element={
-                <ContactPage emails={profile.emails} links={profile.links} />
-              }
-            />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          <Suspense
+            fallback={
+              <div className="flex min-h-[55vh] items-center justify-center px-6 text-sm text-gray-500">
+                Loading route...
+              </div>
+            }
+          >
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <HomePage
+                    profile={profile}
+                    researchAreas={researchAreas}
+                    publicationsCount={publications.length}
+                    certificationsCount={certificates.length}
+                  />
+                }
+              />
+              <Route
+                path="/about"
+                element={<AboutPage content={aboutText} profile={profile} />}
+              />
+              <Route
+                path="/academics"
+                element={
+                  <AcademicsPage academics={academics} profile={profile} />
+                }
+              />
+              <Route
+                path="/research"
+                element={
+                  <ResearchPage
+                    areas={researchAreas}
+                    researchProfile={researchProfile}
+                    milestones={researchMilestones}
+                    innovationHighlights={innovationHighlights}
+                  />
+                }
+              />
+              <Route
+                path="/publications"
+                element={
+                  <PublicationsPage
+                    items={publications}
+                    scholarLink={profile.links.scholar}
+                    featuredItems={featuredPublications}
+                  />
+                }
+              />
+              <Route path="/achievements" element={<CertificatesPage />} />
+              <Route
+                path="/projects"
+                element={<ProjectsPage projects={projects} />}
+              />
+              <Route
+                path="/contact"
+                element={
+                  <ContactPage emails={profile.emails} links={profile.links} />
+                }
+              />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
         </main>
 
         <Footer profile={profile} navItems={navItems} />

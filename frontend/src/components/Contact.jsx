@@ -1,4 +1,5 @@
 import {
+  Github,
   GraduationCap,
   Linkedin,
   Mail,
@@ -135,6 +136,20 @@ function Contact({ emails, links }) {
               <GraduationCap size={15} />
               Google Scholar
             </motion.a>
+            {links.github ? (
+              <motion.a
+                href={links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 transition-all duration-300 hover:bg-black hover:text-white"
+                variants={staggerItem}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Github size={15} />
+                GitHub
+              </motion.a>
+            ) : null}
           </motion.div>
 
           <motion.form

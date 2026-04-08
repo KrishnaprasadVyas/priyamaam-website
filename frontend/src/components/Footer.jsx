@@ -1,4 +1,4 @@
-import { GraduationCap, Linkedin, Mail } from "lucide-react";
+import { Github, GraduationCap, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 function Footer({ profile, navItems }) {
@@ -10,7 +10,7 @@ function Footer({ profile, navItems }) {
       <div className="mx-auto grid max-w-7xl gap-8 text-sm text-gray-600 md:grid-cols-3">
         <div>
           <h3 className="text-lg font-semibold text-gray-900">
-            {profile.name}
+            Dr. Priya Surana
           </h3>
           <p className="mt-2 text-sm leading-relaxed">
             Assistant Professor in Computer Engineering at PCCOE Pune, focused
@@ -36,6 +36,17 @@ function Footer({ profile, navItems }) {
             >
               <GraduationCap size={15} />
             </a>
+            {profile.links.github ? (
+              <a
+                href={profile.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex rounded-full border border-gray-300 p-2 text-gray-700 transition-all duration-300 hover:bg-black hover:text-white"
+                aria-label="GitHub"
+              >
+                <Github size={15} />
+              </a>
+            ) : null}
           </div>
         </div>
 

@@ -13,9 +13,9 @@ function Navbar({ items }) {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
         <Link
           to="/"
-          className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-900 transition-all Duration-300 hover:text-gray-600"
+          className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-900 transition-all duration-300 hover:text-gray-600"
         >
-          Priya Surana
+          Dr. Priya Surana
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">

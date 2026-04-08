@@ -6,10 +6,11 @@ export const profile = {
   organization: "Pimpri Chinchwad College of Engineering, Pune",
   location: "Pimpri Chinchwad College of Engineering, Akurdi, Pune",
   tagline:
-    "Passionate about research, innovation, and shaping future engineers.",
+    "Dr. Priya Surana is passionate about research, innovation, and shaping future engineers through AI and machine learning.",
   emails: ["priya.surana@pccoepune.org", "priya.surana0204@gmail.com"],
   links: {
     linkedin: "https://www.linkedin.com/",
+    github: "",
     scholar: "https://scholar.google.com/citations?user=CFBD5_wAAAAJ&hl=en",
     scopus: "https://www.scopus.com/authid/detail.uri?authorId=57218176718",
     orcid: "https://orcid.org/0009-0009-2291-0279",

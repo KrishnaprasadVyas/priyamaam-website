@@ -1,0 +1,18 @@
+{
+  "name": "Dr. Priya Surana | Assistant Professor, Researcher & AI Expert",
+  "short_name": "Dr. Priya Surana",
+  "description": "Official website of Dr. Priya Surana, Assistant Professor in Computer Engineering focused on AI, machine learning, and academic innovation.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111111",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
