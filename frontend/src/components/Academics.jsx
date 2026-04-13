@@ -4,7 +4,7 @@ import { fadeUp, staggerContainer, staggerItem } from "../utils/animations";
 
 function Academics({ academics, profile }) {
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 px-6 py-10">
+    <section className="bg-linear-to-b from-white to-gray-50 px-6 py-10">
       <motion.div
         className="mx-auto max-w-7xl space-y-8"
         variants={fadeUp}

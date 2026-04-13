@@ -9,6 +9,7 @@ function CertificateCard({ certificate }) {
     lowerPath.endsWith(".jpg") ||
     lowerPath.endsWith(".png") ||
     lowerPath.endsWith(".jpeg");
+  const isPdf = lowerPath.endsWith(".pdf");
 
   return (
     <>
@@ -27,8 +28,32 @@ function CertificateCard({ certificate }) {
               loading="lazy"
               decoding="async"
             />
+          ) : isPdf ? (
+            <div className="relative h-full w-full overflow-hidden bg-gray-100">
+              <iframe
+                src={`${certificate.file}#page=1&view=FitH&toolbar=0&navpanes=0&scrollbar=0`}
+                title={`${certificate.title} preview`}
+                className="pointer-events-none w-full border-0"
+                style={{
+                  height: "calc(100% + 72px)",
+                  marginTop: "-72px",
+                }}
+                loading="lazy"
+                aria-hidden="true"
+              />
+
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-black/60 via-black/20 to-transparent p-3">
+                <span className="inline-flex rounded-full bg-black/80 px-2 py-1 text-xs font-medium text-white shadow-sm">
+                  PDF Preview
+                </span>
+              </div>
+
+              <div className="pointer-events-none absolute right-2 top-2 rounded-full bg-black px-2 py-1 text-xs text-white shadow-sm">
+                PDF
+              </div>
+            </div>
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-b from-gray-100 to-gray-200">
+            <div className="flex h-full w-full items-center justify-center bg-linear-to-b from-gray-100 to-gray-200">
               <div className="flex h-[80%] w-[70%] flex-col justify-between rounded-md bg-white p-2 shadow transition group-hover:scale-105">
                 <div className="space-y-1">
                   <div className="h-1.5 w-3/4 rounded bg-gray-300" />
@@ -51,7 +76,7 @@ function CertificateCard({ certificate }) {
           )}
 
           <div className="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-transparent" />
 
             <motion.button
               whileHover={{ scale: 1.03 }}

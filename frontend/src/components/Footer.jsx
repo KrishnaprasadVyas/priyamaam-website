@@ -6,7 +6,7 @@ function Footer({ profile, navItems }) {
   const [primaryEmail] = profile.emails;
 
   return (
-    <footer className="mt-14 border-t border-gray-200 bg-gradient-to-b from-white to-gray-100 px-6 py-12">
+    <footer className="mt-14 border-t border-gray-200 bg-linear-to-b from-white to-gray-100 px-6 py-12">
       <div className="mx-auto grid max-w-7xl gap-8 text-sm text-gray-600 md:grid-cols-3">
         <div>
           <h3 className="text-lg font-semibold text-gray-900">

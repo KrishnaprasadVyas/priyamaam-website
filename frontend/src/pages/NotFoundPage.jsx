@@ -2,7 +2,7 @@ import SEO from "../components/SEO";
 
 function NotFoundPage() {
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 px-6 py-16">
+    <section className="bg-linear-to-b from-white to-gray-50 px-6 py-16">
       <SEO
         title="Page not found | Dr. Priya Surana"
         description="The requested page could not be found. Return to the Dr. Priya Surana homepage or explore the available sections."

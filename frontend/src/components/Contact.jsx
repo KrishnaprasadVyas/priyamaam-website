@@ -13,7 +13,7 @@ function Contact({ emails, links }) {
   const [primaryEmail, secondaryEmail] = emails;
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 px-6 py-10">
+    <section className="bg-linear-to-b from-white to-gray-50 px-6 py-10">
       <motion.div
         className="mx-auto grid max-w-7xl items-center gap-8 rounded-2xl border border-gray-200 bg-white/70 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md lg:grid-cols-2"
         variants={fadeUp}

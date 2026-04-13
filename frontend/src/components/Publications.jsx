@@ -78,7 +78,7 @@ function Publications({ items, scholarLink, featuredItems = [] }) {
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 px-6 py-10">
+    <section className="bg-linear-to-b from-white to-gray-50 px-6 py-10">
       <motion.div
         className="mx-auto max-w-7xl"
         variants={fadeUp}

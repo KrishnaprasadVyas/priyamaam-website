@@ -1,8 +1,15 @@
-import { ArrowRight, Github, GraduationCap, Linkedin, Mail } from "lucide-react";
+import {
+  ArrowRight,
+  Github,
+  GraduationCap,
+  Linkedin,
+  Mail,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { fadeUp, staggerContainer, staggerItem } from "../utils/animations";
+import profileImage from "../assets/priya-surana/profile/hero-portrait.png";
 
 function Hero({
   profile,
@@ -25,12 +32,8 @@ function Hero({
     { label: "Certifications", value: `${certificationsCount}+` },
   ];
 
-  const profileImage = imageFallback
-    ? "/assets/priya-surana/profile/hero-portrait.svg"
-    : "/assets/priya-surana/profile/hero-portrait.svg";
-
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 px-6 py-16">
+    <section className="relative overflow-hidden bg-linear-to-b from-white to-gray-50 px-6 py-16">
       <div className="pointer-events-none absolute -right-16 top-10 h-64 w-64 rounded-full bg-black/5 blur-3xl" />
 
       <motion.div
